@@ -3,7 +3,6 @@ const User = require('../models/userModel')
 
 // main guard
 module.exports.verifyuser = function(req, res, next) {
-
     try {
         const token = req.headers.authorization.split(" ")[1];
         const userdata = jwt.verify(token, 'secretkey')
@@ -19,11 +18,9 @@ module.exports.verifyuser = function(req, res, next) {
             })
     } catch (err) {
         res.status(401).json({ eroor: e })
-
     }
 
 }
-
 
 // next guard admin
 module.exports.verifyadmin = function(req, res, next) {
